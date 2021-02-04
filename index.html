@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="main">
+        <h1 class="main__title">Выберите уровень сложности:</h1>
+        <span class="main__subtitle"><b>Выберите сложность и игра начнется.</b>
+          Чем выше уровень - тем больше будет выборка карт.
+        </span>
+        <ul class="menu">
+          <li class="menu__item">
+            <p>Простой</p>
+          </li>
+          <li class="menu__item">
+            <p>Средний</p>
+          </li>
+          <li class="menu__item">
+            <p>Сложный</p>
+          </li>
+        </ul>
+        <button class="button">Начать игру</button>
+        <div class="cards">
+          <img class="cards__back" src="img/cardBack.svg" alt="photo1">
+          <img class="cards__front" src="img/cardFront.svg" alt="photo2">
+        </div>
+      </section>
+      <div class="game visible"></div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

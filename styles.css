@@ -1,0 +1,312 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 1440px;
+  height: 1024px;
+  background: no-repeat url(img/Background.png);
+  font-family: "Roboto";
+  color: #fff;
+}
+
+.wrapper {
+  margin: 0 auto;
+  height: 1024px;
+}
+
+.main {
+  position: relative;
+  max-width: 1440px;
+}
+
+.main__title {
+  margin: 0 0 11px 0;
+  padding: 131px 0 0 103px;
+  font-weight: bold;
+  font-size: 57px;
+  line-height: 63px;
+}
+
+.main__subtitle {
+  padding: 0 0 0 106px;
+  margin: 0 0 55px 0;
+  font-size: 19px;
+  line-height: 21px;
+}
+
+.menu {
+  padding: 0;
+  margin: 60px 0 91px 152px;
+  list-style: none;
+  transition: 0.6s;
+}
+
+.menu__item {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 59px;
+  margin: 0 0 -26px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu__item-active::before {
+  width: 18px;
+  height: 18px;
+  content: "";
+  background-color: #d62b2e;
+  position: absolute;
+  top: calc(50% - 9px);
+  left: -45px;
+  transform: rotate(45deg);
+}
+
+.button {
+  margin: 48px 0 50px 102px;
+  font-weight: bold;
+  font-size: 30.8px;
+  line-height: 37px;
+  padding: 28px 85px;
+  background-color: #d62b2e;
+  border-radius: 7px;
+  color: #fff;
+  border: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.button:hover {
+  font-size: 31px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+.cards {
+  position: absolute;
+  top: 61%;
+  left:0;
+  right: 88px;
+  width: 700px;
+  margin-left: auto ;
+}
+
+.cards__back {
+  position: relative;
+  z-index: 2;
+  left: 203px;
+  top: 16px;
+}
+
+.cards__front {
+  position: relative;
+  top: 48px;
+  left: 38px;
+  z-index: 3;
+}
+
+.game {
+  display: flex;
+  height: 100vh;
+  width: 730px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.width {
+  width: 1210px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 218px;
+  height: 341px;
+  perspective: 1000px;
+  margin: 32px 24px 24px 0;
+}
+
+.flip-card:hover {
+  animation: move;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes move {
+  50% {
+    transform: rotate(-3.08deg) translateY(-30px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(-22px);
+  }
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.active {
+  transform: rotateY(180deg);
+}
+
+.flip-card__front, .flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card__back {
+  transform: rotateY(180deg);
+}
+
+.visible {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    max-width: 1440px;
+    height: 1024px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .wrapper {
+    min-width: 727px;
+    height: 100%;
+  }
+
+  .cards {
+    top: 45.6%;
+  }
+
+  .main {
+    height: 100vh;
+  }
+
+  .main__subtitle {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 850px) {
+  .cards {
+    top: 45.6%;
+}
+
+@media (max-width: 730px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .main {
+    height: 100%;
+  }
+
+  .main__title {
+    font-size: 57px;
+    margin: 0 0 1.9vh 0;
+  }
+
+  .main__subtitle {
+    max-width: 500px;
+    font-size: 3,45vh;
+  }
+
+  .menu {
+    margin: 10.95vh 0 16.7vh 18.6vh;
+  }
+
+  .menu__item {
+    max-width: 250px;
+    padding-left: 49px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.6s;
+  }
+
+  .button {
+    margin-bottom: 50px;
+    margin-left: 102px;
+    font-size: 30px;
+    padding: 29px 87px;
+  }
+
+  .cards {
+    top: 45.6%;
+  }
+}
+
+@media (max-width:520px) {
+  .wrapper {
+    height: 100%;
+  }
+
+  .main {
+    height: 100%;
+  }
+
+  .main__title {
+    padding: 131px 0 0 103px;
+    font-size: 57px;
+  }
+
+  .main__subtitle {
+    padding-left: 105px;
+  }
+
+  .menu {
+    margin-left: 18.8vh;
+  }
+
+  .menu__item {
+    max-width: 250px;
+    padding-left: 47px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.6s;
+  }
+
+  .button {
+    margin-bottom: 50px;
+    margin-left: 104px;
+    font-size: 30.8px;
+    padding: 28.5px 83px;
+  }
+}
+
+@media (max-width:319px) {
+  .wrapper {
+    height: 100%;
+  }
+
+  .main {
+    height: 100%;
+  }
+
+  .menu__item {
+    max-width: 250px;
+    padding-left: 47px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.6s;
+  }
+
+  .button {
+    font-size: 30.6px;
+    padding: 28.5px 84px;
+  }
+}
