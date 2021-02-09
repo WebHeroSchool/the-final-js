@@ -6,7 +6,7 @@ let pageFace = document.querySelector('.main');
 let pageGame = document.querySelector('.game');
 let flipCards;
 let flipCardInners;
-let active = document.querySelector('.active');;
+let active = document.querySelector('.active');
 
 ul.onclick = function(event) {
   target = event.target;
@@ -17,18 +17,18 @@ function hightLight(element) {
   if (selectedLi) selectedLi.classList.remove('menu__item-active');
   selectedLi = element;
   selectedLi.classList.add('menu__item-active');
-}
+};
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-}
+};
 
 function createCard(array) {
-	for (let i=0; i<array.length; i++) {
-  	let card = document.createElement ('div');
+  for (let i = 0; i < array.length; i++) {
+    let card = document.createElement ('div');
     let cardInner = document.createElement ('div');
     let cardFront = document.createElement ('div');
     let cardBack = document.createElement ('div');
@@ -57,23 +57,24 @@ function createCard(array) {
     imageBack.classList.add('flip-card__image');
     cardBack.appendChild(imageBack);
   }
-}
+};
 
 button.addEventListener('click', () => {
   let array;
   let easy = [1,0,0];
   let middle = [1,0,0,0,0,0];
   let hard = [1,0,0,0,0,0,0,0,0,0];
-  if (target.innerHTML ==='Простой' || target.innerHTML === undefined) {
-    array = easy;
+  if (let = document.getElementById('easy')) {
+    array = 'easy';
   }
-  if (target.innerHTML ==='Средний') {
-    array = middle;
+  if (let = document.getElementById('middle')) {
+    array = 'middle';
   }
-  if (target.innerHTML ==='Сложный') {
-    array = hard;
+  if (let = document.getElementById('hard')) {
+    array = 'hard';
     pageGame.classList.add('width');
-  }
+  };
+
   shuffle(array);
   console.log(array);
   pageFace.classList.add('visible');
