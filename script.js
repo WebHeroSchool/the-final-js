@@ -17,7 +17,7 @@ function hightLight(element) {
   if (selectedLi) selectedLi.classList.remove('menu__item-active');
   selectedLi = element;
   selectedLi.classList.add('menu__item-active');
-};
+}
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -64,16 +64,16 @@ button.addEventListener('click', () => {
   let easy = [1,0,0];
   let middle = [1,0,0,0,0,0];
   let hard = [1,0,0,0,0,0,0,0,0,0];
-  if (let = document.getElementById('easy')) {
-    array = 'easy';
+  if (target.innerHTML ==='Простой' || target.innerHTML === undefined) {
+    array = easy;
   }
-  if (let = document.getElementById('middle')) {
-    array = 'middle';
+  if (target.innerHTML ==='Средний') {
+    array = middle;
   }
-  if (let = document.getElementById('hard')) {
-    array = 'hard';
+  if (target.innerHTML ==='Сложный') {
+    array = hard;
     pageGame.classList.add('width');
-  };
+  }
 
   shuffle(array);
   console.log(array);
