@@ -26,8 +26,8 @@ function shuffle(array) {
   }
 };
 
-function createCard(array) {
-  for (let i = 0; i < array.length; i++) {
+function createCard(numb) {
+  for (let i = 0; i < numb; i++) {
     let card = document.createElement ('div');
     let cardInner = document.createElement ('div');
     let cardFront = document.createElement ('div');
@@ -49,41 +49,36 @@ function createCard(array) {
 
     cardBack.className = 'flip-card__back';
     cardInner.appendChild(cardBack);
-    if (array[i] === 1) {
-      imageBack.src = 'img/bag.svg';
-    } else {
-      imageBack.src = 'img/gameover.svg';
-    }
     imageBack.classList.add('flip-card__image');
     cardBack.appendChild(imageBack);
   }
 };
 
 button.addEventListener('click', () => {
-  let array;
-  let easy = [1,0,0];
-  let middle = [1,0,0,0,0,0];
-  let hard = [1,0,0,0,0,0,0,0,0,0];
-  if (target.innerHTML ==='Простой' || target.innerHTML === undefined) {
-    array = easy;
-  }
-  if (target.innerHTML ==='Средний') {
-    array = middle;
-  }
+  let number;
+  if (target.innerHTML ==='Простой' || target.innerHTML === undefined) number = 3;
+  if (target.innerHTML ==='Средний') number = 6;
   if (target.innerHTML ==='Сложный') {
-    array = hard;
+    number = 10;
     pageGame.classList.add('width');
   }
 
-  shuffle(array);
-  console.log(array);
   pageFace.classList.add('visible');
   pageGame.classList.remove('visible');
-  createCard(array);
+  createCard(number);
   flipCards = document.querySelectorAll('.flip-card');
   flipCardInners = document.querySelectorAll('.flip-card__inner');
   for (let i=0; i<flipCards.length;i++) {
-    let flipCardInner = () => flipCardInners[i].classList.toggle('active');
+    let flipCardInner = () => {
+      let imageBack = flipCardInners[i].querySelector('.flip-card__back > img');
+      let numb = Math.round(Math.random());
+      if (numb === 1) {
+        imageBack.src = 'img/bag.svg';
+      } else {
+        imageBack.src = 'img/gameover.svg';
+      }
+      flipCardInners[i].classList.toggle('active');
+    }
     flipCards[i].addEventListener('click', flipCardInner, {once:true});
   }
 });
